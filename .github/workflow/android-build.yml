@@ -3,7 +3,7 @@ name: Android Build
 on:
   push:
     branches:
-      - main  # oder 'master', je nachdem wie dein Branch heißt
+      - main
 
 jobs:
   build:
