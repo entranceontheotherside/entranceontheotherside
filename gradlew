@@ -1,2 +1,2 @@
-#!/bin/bash
-echo 'gradlew simulation'
+#!/bin/sh
+echo 'Simulated gradlew script'

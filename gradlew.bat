@@ -1,2 +1,2 @@
 @echo off
-echo gradlew simulation
+echo Simulated gradlew.bat
