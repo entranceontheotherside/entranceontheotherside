@@ -1,4 +1,4 @@
-name: Android Build
+name: Upload Test
 
 on:
   push:
@@ -6,26 +6,17 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: temurin
-          java-version: 17
-
-      - name: Simuliere APK-Datei (Test)
+      - name: Create dummy file
         run: |
-          mkdir -p app/build/outputs/apk/debug
-          echo "Fake APK Inhalt" > app/build/outputs/apk/debug/app-debug.apk
+          mkdir -p dummy
+          echo "Hello World" > dummy/test.txt
 
-      - name: Upload APK (Test)
+      - name: Upload dummy file
         uses: actions/upload-artifact@v3
         with:
-          name: debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: test-artifact
+          path: dummy/test.txt
