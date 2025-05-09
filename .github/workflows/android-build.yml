@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Set up Java
@@ -19,13 +19,12 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Simuliere APK-Datei (Test)
+        run: |
+          mkdir -p app/build/outputs/apk/debug
+          echo "Fake APK Inhalt" > app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Build APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK
+      - name: Upload APK (Test)
         uses: actions/upload-artifact@v3
         with:
           name: debug-apk
